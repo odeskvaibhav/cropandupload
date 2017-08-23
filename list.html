@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js" type="text/javascript" charset="utf-8" ></script>
+
+    <script src="//rawgit.com/CrackerakiUA/ui-cropper/master/compile/unminified/ui-cropper.js" type="text/javascript" charset="utf-8" ></script>
+
+    <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.rawgit.com/CrackerakiUA/ui-cropper/master/compile/minified/ui-cropper.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <style type="text/css" media="screen">
+        td{
+            background: #c1c1c1;
+        }
+    
+        td img{
+
+        }
+    </style>
+
+
+</head>
+<body ng-app="app" ng-controller="getController">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <tr>
+                    <td class="listtd">
+                        Original Image
+                    </td>
+                    <td class="listtd">
+                        Horizontal
+                    </td>
+                    <td class="listtd">
+                        Vertical
+                    </td>
+                    <td class="listtd">
+                        Horizontal Small
+                    </td>
+                    <td class="listtd">
+                        Gallery
+                    </td>
+                </tr>
+
+                <tr ng-repeat="original in originals">
+                    <td class="listtd">
+                        <img width="200" src="backend/uploads/original_{{original.uniq_id}}.png"/>
+                    </td>
+                    <td class="listtd">
+                        <img width="200" src="backend/uploads/horizontal_{{original.uniq_id}}.png"/>
+                    </td>
+                    <td class="listtd">
+                        <img width="200" src="backend/uploads/vertical_{{original.uniq_id}}.png"/>
+                    </td>
+                    <td class="listtd">
+                        <img width="200" src="backend/uploads/horizontal_small_{{original.uniq_id}}.png"/>
+                    </td>
+                    <td class="listtd">
+                        <img width="200" src="backend/uploads/gallery_{{original.uniq_id}}.png"/>
+                    </td>
+                </tr>
+                </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

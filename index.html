@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js" type="text/javascript" charset="utf-8" ></script>
+
+    <script src="//rawgit.com/CrackerakiUA/ui-cropper/master/compile/unminified/ui-cropper.js" type="text/javascript" charset="utf-8" ></script>
+
+    <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.rawgit.com/CrackerakiUA/ui-cropper/master/compile/minified/ui-cropper.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <style type="text/css" media="screen">
+        
+
+        table{
+            /*display: none;*/
+        }
+    
+    </style>
+
+
+</head>
+<body ng-app="app" ng-controller="mainController">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 file-block">
+            <form>
+              <div class="form-group">
+                <label for="exampleFormControlFile1">Select an image file (1024px x 1024px): </label>
+                <input class="form-control-file" id="original" type="file" />
+              </div>
+
+              <button class="btn btn-primary" ng-show="showCropArea" ng-disabled="disableUpload" ng-click="uploadImages()">Upload Files</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row" ng-show="showCropArea">
+        <div class="col-md-12 crop-areas">
+            <table class="table table-inverse">
+
+                <tr ng-repeat="size in imageSizes">
+                    <td class="cropArea">
+                          <ui-cropper image="myImage" area-type="rectangle" aspect-ratio="size.aspectRatio"
+             result-image="myCroppedImage1" result-image-size='{w: size.width,h: size.height}' init-max-area="true"></ui-cropper>
+                    </td>
+                    <td class="resultArea">
+                        <h3>{{size.name}} ({{size.width}}px x {{size.height}}px)</h3>
+                        <div><img width="500px" class="cropped-images" id="{{size.name}}" ng-src="{{myCroppedImage1}}" /></div>
+                    </td>
+                </tr>
+                </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

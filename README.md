@@ -1,3 +1,5 @@
+For convenience I have hosted this here: http://cropandupload.hariramjewellers.in
+
 To set this up:
 
 1. Create MySql db name "image_crop".
